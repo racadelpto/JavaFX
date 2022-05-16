@@ -99,13 +99,15 @@ public class AplicacionPrincipal extends Application {
 		Iterator<RuedaVO> itr = listaRuedas.iterator();
 
 		rueda = itr.next();
-
+		
 		while (itr.hasNext()) {
 			fRuedaPestana2.chSelectIdRueda.getItems().add(rueda.getIdRueda());
 
 			rueda = itr.next();
 		}
 
+		fRuedaPestana2.chSelectIdRueda.getItems().add(rueda.getIdRueda());
+		
 		fRuedaPestana2.chSelectIdRueda.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -187,7 +189,7 @@ public class AplicacionPrincipal extends Application {
 		panelPestana3.add(btnOrdenarAscDesc, 0, 0);
 
 		for (int i = 0; i < listaRuedas.size(); i++) {
-			Label labelRueda = new Label(listaRuedas.get(i).getIdRueda() + ", " + listaRuedas.get(i).getMarca() + ", "
+			Label labelRueda = new Label(i+1 + ". " + listaRuedas.get(i).getIdRueda() + ", " + listaRuedas.get(i).getMarca() + ", "
 					+ listaRuedas.get(i).getModelo() + ", " + listaRuedas.get(i).getDimensiones() + ", "
 					+ listaRuedas.get(i).getPeso() + ", " + listaRuedas.get(i).getComponente() + ", "
 					+ listaRuedas.get(i).getEstado() + ", " + listaRuedas.get(i).getFecha() + ", "
@@ -207,7 +209,7 @@ public class AplicacionPrincipal extends Application {
 					btnOrdenarAscDesc.setText("Asc");
 
 					for (int i = listaRuedas.size() - 1; i >= 0; i--) {
-						Label labelRueda = new Label(listaRuedas.get(i).getIdRueda() + ", "
+						Label labelRueda = new Label(listaRuedas.size() - i + ". " + listaRuedas.get(i).getIdRueda() + ", "
 								+ listaRuedas.get(i).getMarca() + ", " + listaRuedas.get(i).getModelo() + ", "
 								+ listaRuedas.get(i).getDimensiones() + ", " + listaRuedas.get(i).getPeso() + ", "
 								+ listaRuedas.get(i).getComponente() + ", " + listaRuedas.get(i).getEstado() + ", "
@@ -223,7 +225,7 @@ public class AplicacionPrincipal extends Application {
 					btnOrdenarAscDesc.setText("Desc");
 
 					for (int i = 0; i < listaRuedas.size(); i++) {
-						Label labelRueda = new Label(listaRuedas.get(i).getIdRueda() + ", "
+						Label labelRueda = new Label(i+1 + ". " + listaRuedas.get(i).getIdRueda() + ", "
 								+ listaRuedas.get(i).getMarca() + ", " + listaRuedas.get(i).getModelo() + ", "
 								+ listaRuedas.get(i).getDimensiones() + ", " + listaRuedas.get(i).getPeso() + ", "
 								+ listaRuedas.get(i).getComponente() + ", " + listaRuedas.get(i).getEstado() + ", "

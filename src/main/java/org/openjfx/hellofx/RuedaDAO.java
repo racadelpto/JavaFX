@@ -480,8 +480,6 @@ public class RuedaDAO {
 
 			ResultSet res = pStmt.executeQuery();
 
-			res.next();
-
 			while (res.next()) {
 				RuedaVO rueda = new RuedaVO();
 
