@@ -83,7 +83,7 @@ public class RuedaDAO {
 			// PreparedStatement pStmt con query como referencia gracias a con
 			PreparedStatement pStmt = con.prepareStatement(query);
 
-			// Si el idRueda de piloto es diferente de null y no es igual a ""
+			// Si el idRueda de rueda es diferente de null y no es igual a ""
 			if (rueda.getIdRueda() != null && !rueda.getIdRueda().equals("")) {
 
 				// Asignamos idRueda de rueda al primer ? del pStmt
@@ -96,7 +96,7 @@ public class RuedaDAO {
 				return resultado;
 			}
 
-			// Si la marca de piloto es diferente de null y no es igual a ""
+			// Si la marca de rueda es diferente de null y no es igual a ""
 			if (rueda.getMarca() != null && !rueda.getMarca().equals("")) {
 
 				// Asignamos marca de rueda al segundo ? del pStmt
@@ -109,7 +109,7 @@ public class RuedaDAO {
 				return resultado;
 			}
 
-			// Si el modelo de piloto es diferente de null y no es igual a ""
+			// Si el modelo de rueda es diferente de null y no es igual a ""
 			if (rueda.getModelo() != null && !rueda.getModelo().equals("")) {
 
 				// Asignamos modelo de rueda al tercer ? del pStmt
@@ -122,7 +122,7 @@ public class RuedaDAO {
 				return resultado;
 			}
 
-			// Si la dimensiones de piloto es diferente de null y no es igual a ""
+			// Si la dimensiones de rueda es diferente de null y no es igual a ""
 			if (rueda.getDimensiones() != null && !rueda.getDimensiones().equals("")) {
 
 				// Asignamos dimensiones de rueda al cuarto ? del pStmt
@@ -135,7 +135,7 @@ public class RuedaDAO {
 				return resultado;
 			}
 
-			// Si el peso de piloto es mayor de -1
+			// Si el peso de rueda es mayor de -1
 			if (rueda.getPeso() > -1) {
 
 				// Asignamos peso de rueda al quinto ? del pStmt
@@ -148,7 +148,7 @@ public class RuedaDAO {
 				return resultado;
 			}
 
-			// Si el componente de piloto es diferente de null y no es igual a ""
+			// Si el componente de rueda es diferente de null y no es igual a ""
 			if (rueda.getComponente() != null && !rueda.getComponente().equals("")) {
 
 				// Asignamos componente de rueda al sexto ? del pStmt
@@ -161,7 +161,7 @@ public class RuedaDAO {
 				return resultado;
 			}
 
-			// Si el estado de piloto es diferente de null y no es igual a ""
+			// Si el estado de rueda es diferente de null y no es igual a ""
 			if (rueda.getEstado() != null && !rueda.getEstado().equals("")) {
 
 				// Asignamos componente de rueda al séptimo ? del pStmt
@@ -218,14 +218,14 @@ public class RuedaDAO {
 			return resultado;
 		}
 
-		// Si el idRueda de piloto es igual a null y es igual a ""
+		// Si el idRueda de rueda es igual a null y es igual a ""
 		if (rueda.getIdRueda() == null && rueda.getIdRueda().equals("")) {
 
 			return resultado;
 
 		}
 
-		// Si la marca de piloto es diferente de null y no es igual a ""
+		// Si la marca de rueda es diferente de null y no es igual a ""
 		if (rueda.getMarca() != null && !rueda.getMarca().equals("")) {
 
 			// Sumamos a query ese String
@@ -235,7 +235,7 @@ public class RuedaDAO {
 			posicion++;
 		}
 
-		// Si el modelo de piloto es diferente de null y no es igual a ""
+		// Si el modelo de rueda es diferente de null y no es igual a ""
 		if (rueda.getModelo() != null && !rueda.getModelo().equals("")) {
 
 			// Si posicion es igual a 1
@@ -255,7 +255,7 @@ public class RuedaDAO {
 			posicion++;
 		}
 
-		// Si la dimensiones de piloto es diferente de null y no es igual a ""
+		// Si la dimensiones de rueda es diferente de null y no es igual a ""
 		if (rueda.getDimensiones() != null && !rueda.getDimensiones().equals("")) {
 
 			// Si posicion es igual a 1
@@ -275,7 +275,7 @@ public class RuedaDAO {
 			posicion++;
 		}
 
-		// Si el peso de piloto es mayor de -1
+		// Si el peso de rueda es mayor de -1
 		if (rueda.getPeso() > -1) {
 
 			// Si posicion es igual a 1
@@ -295,7 +295,7 @@ public class RuedaDAO {
 			posicion++;
 		}
 
-		// Si el componente de piloto es diferente de null y no es igual a ""
+		// Si el componente de rueda es diferente de null y no es igual a ""
 		if (rueda.getComponente() != null && !rueda.getComponente().equals("")) {
 
 			// Si posicion es igual a 1
@@ -315,7 +315,7 @@ public class RuedaDAO {
 			posicion++;
 		}
 
-		// Si el estado de piloto es diferente de null y no es igual a ""
+		// Si el estado de rueda es diferente de null y no es igual a ""
 		if (rueda.getEstado() != null && !rueda.getEstado().equals("")) {
 
 			// Si posicion es igual a 1
@@ -359,7 +359,7 @@ public class RuedaDAO {
 			// Definimos posicion igual a 1
 			posicion = 1;
 
-			// Si la marca de piloto es diferente de null y no es igual a ""
+			// Si la marca de rueda es diferente de null y no es igual a ""
 			if (rueda.getMarca() != null && !rueda.getMarca().equals("")) {
 
 				// Asignamos marca de rueda al ? del pStmt en la posicion en ese
@@ -370,7 +370,7 @@ public class RuedaDAO {
 				posicion++;
 			}
 
-			// Si el modelo de piloto es diferente de null y no es igual a ""
+			// Si el modelo de rueda es diferente de null y no es igual a ""
 			if (rueda.getModelo() != null && !rueda.getModelo().equals("")) {
 
 				// Asignamos modelo de rueda al ? del pStmt en la posicion en ese
@@ -381,7 +381,7 @@ public class RuedaDAO {
 				posicion++;
 			}
 
-			// Si la dimensiones de piloto es diferente de null y no es igual a ""
+			// Si la dimensiones de rueda es diferente de null y no es igual a ""
 			if (rueda.getDimensiones() != null && !rueda.getDimensiones().equals("")) {
 
 				// Asignamos dimensiones de rueda al ? del pStmt en la posicion en ese
@@ -392,7 +392,7 @@ public class RuedaDAO {
 				posicion++;
 			}
 
-			// Si el peso de piloto es mayor de -1
+			// Si el peso de rueda es mayor de -1
 			if (rueda.getPeso() > -1) {
 
 				// Asignamos peso de rueda al ? del pStmt en la posicion en ese
@@ -403,7 +403,7 @@ public class RuedaDAO {
 				posicion++;
 			}
 
-			// Si el componente de piloto es diferente de null y no es igual a ""
+			// Si el componente de rueda es diferente de null y no es igual a ""
 			if (rueda.getComponente() != null && !rueda.getComponente().equals("")) {
 
 				// Asignamos componente de rueda al ? del pStmt en la posicion en ese
@@ -414,7 +414,7 @@ public class RuedaDAO {
 				posicion++;
 			}
 
-			// Si el estado de piloto es diferente de null y no es igual a ""
+			// Si el estado de rueda es diferente de null y no es igual a ""
 			if (rueda.getEstado() != null && !rueda.getEstado().equals("")) {
 
 				// Asignamos estado de rueda al ? del pStmt en la posicion en ese
@@ -446,7 +446,7 @@ public class RuedaDAO {
 			// Sumamos 1 a posicion
 			posicion++;
 
-			// Asignamos idPiloto de piloto al ? del pStmt en la posicion en ese
+			// Asignamos idRueda de rueda al ? del pStmt en la posicion en ese
 			// momento
 			pStmt.setString(posicion, rueda.getIdRueda());
 
@@ -467,22 +467,39 @@ public class RuedaDAO {
 		return resultado;
 	}
 
+	/**
+	 * Función que devuelve la lista de ruedas que contiene la BDD en un ArrayList
+	 * que contiene objetos de la clase RuedaVO
+	 * 
+	 * @return un ArrayList de la clase RuedaVO
+	 */
 	public static ArrayList<RuedaVO> cargarRuedas() {
 
+		// Declaramos ArrayList de RuedaVO
 		ArrayList<RuedaVO> listaRuedas = new ArrayList<RuedaVO>();
 
+		// Nos conectamos a la BDD
 		Connection con = ConexionBD.conectarBD();
 
+		// String con la query a ejecutar
 		String query = "Select * from rueda";
 
 		try {
+
+			// PreparedStatement pStmt con query como referencia gracias a con
 			PreparedStatement pStmt = con.prepareStatement(query);
 
+			// Inicializamos res de la clase ResultSet a la ejecución del query de pStmt
 			ResultSet res = pStmt.executeQuery();
 
+			// Mientras res tenga elementos
 			while (res.next()) {
+
+				// Declaramos rueda de RuedaVO
 				RuedaVO rueda = new RuedaVO();
 
+				// Asignamos cada atributo al objeto rueda sacando los datos de las
+				// columnas de res dependiendo del dato a asignar
 				rueda.setIdRueda(res.getString("idRueda"));
 				rueda.setMarca(res.getString("Marca"));
 				rueda.setModelo(res.getString("Modelo"));
@@ -494,13 +511,17 @@ public class RuedaDAO {
 				rueda.setSesion(res.getString("Sesión"));
 				rueda.setIdCoche(res.getString("Coche_idCoche"));
 
+				// Añadimos rueda a listaRuedas
 				listaRuedas.add(rueda);
 			}
 
 		} catch (SQLException e) {
+
+			// Expresamos el error
 			e.printStackTrace();
 		}
 
+		// Devolvemos listaRuedas
 		return listaRuedas;
 	}
 

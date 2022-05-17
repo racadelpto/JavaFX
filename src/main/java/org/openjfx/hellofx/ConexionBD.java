@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Clase que contiene la funci�n conectarBD()
+ * Clase que contiene la función conectarBD()
  * 
  * @author raulh
  *
@@ -21,7 +21,7 @@ public class ConexionBD {
 
 		// Parametros para la conexion a BD
 		String user = "root";
-		String password = "admin";
+		String password = "";
 		String url = "jdbc:mysql://localhost:3306/campeonatogt3";
 
 		// Conexion para acceder a BD
