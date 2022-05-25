@@ -92,7 +92,7 @@ public class FormularioRueda extends GridPane {
 
 		this.add(btnInsertar, 0, 7, 4, 1);
 
-		// Determinamos el padding del BorderPane y la distancia entre elementos
+		// Determinamos el padding del GridPane y la distancia entre elementos
 		this.setPadding(new Insets(20, 20, 20, 20));
 		this.setVgap(10);
 		this.setHgap(10);

@@ -335,7 +335,7 @@ public class AplicacionPrincipal extends Application {
 		// Asignamos como contenido de panelScrollPestana3 el panelPestana3
 		panelScrollPestana3.setContent(panelPestana3);
 
-		// Asignamos como contenido de pestana3
+		// Asignamos como contenido de pestana3 panelScrollPestana3
 		pestana3.setContent(panelScrollPestana3);
 
 		// Hacemos que las pestañas no sean cerrables
