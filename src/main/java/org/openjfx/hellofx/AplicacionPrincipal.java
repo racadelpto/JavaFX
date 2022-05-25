@@ -1,9 +1,5 @@
 package org.openjfx.hellofx;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -13,7 +9,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -72,10 +67,12 @@ public class AplicacionPrincipal extends Application {
 		// Creamos la Tab pestana1
 		Tab pestana1 = new Tab("Insertar Datos");
 
-		// Inicializamos un objeto FormularioRueda fRuedaPestana1 con el primer
-		// constructor
+		// Inicializamos un objeto FormularioRueda fRuedaPestana1 con el constructor
 		FormularioRueda fRuedaPestana1 = new FormularioRueda();
-
+		
+		//Añadimos a este formulario el btnInsertar al final
+		fRuedaPestana1.add(fRuedaPestana1.btnInsertar, 0, 8, 2, 1);
+		
 		// Añadimos un evento al btnInsertar de fRuedaPestana1
 		fRuedaPestana1.btnInsertar.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -102,7 +99,6 @@ public class AplicacionPrincipal extends Application {
 				// Ejecutamos la función insertar() de RuedaDAO con rueda como parámetro
 				RuedaDAO.insertar(rueda);
 			}
-
 		});
 
 		// Asignamos fRueda como contenido de pestana1
@@ -113,9 +109,26 @@ public class AplicacionPrincipal extends Application {
 		// Creamos la Tab pestana2
 		Tab pestana2 = new Tab("Modificar/Borrar");
 
-		// Inicializamos un objeto FormularioRueda fRuedaPestana2 con el segundo
-		// constructor
-		FormularioRueda fRuedaPestana2 = new FormularioRueda("pestaña2");
+		// Inicializamos un objeto FormularioRueda fRuedaPestana2 con el constructor
+		FormularioRueda fRuedaPestana2 = new FormularioRueda();
+		
+		// Creamos un VBox
+		VBox panelVBox = new VBox();
+
+		//Añadimos al principio del panelVBox el Label y ChoiceBox de SelectIdRueda y le ponemos márgenes a estos 2 elementos
+		panelVBox.getChildren().add(fRuedaPestana2.lblSelectIdRueda);
+		panelVBox.getChildren().add(fRuedaPestana2.chSelectIdRueda);
+		VBox.setMargin(fRuedaPestana2.lblSelectIdRueda, new Insets(10, 20, 5, 20));
+		VBox.setMargin(fRuedaPestana2.chSelectIdRueda, new Insets(5, 20, 5, 20));
+
+		// Añadimos ahora al panelVBox el fRuedaPestana2
+		panelVBox.getChildren().add(fRuedaPestana2);
+
+		//Añadimos al final del panelVBox los btnActualizar y btnEliminar y le ponemos márgenes a estos 2 elementos
+		panelVBox.getChildren().add(3, fRuedaPestana2.btnEliminar);
+		panelVBox.getChildren().add(3, fRuedaPestana2.btnActualizar);
+		VBox.setMargin(fRuedaPestana2.btnActualizar, new Insets(0, 20, 10, 20));
+		VBox.setMargin(fRuedaPestana2.btnEliminar, new Insets(0, 20, 0, 20));
 
 		// Asignamos listaRuedas a la función cargarRuedas() de RuedaDAO
 		listaRuedas = RuedaDAO.cargarRuedas();
@@ -159,7 +172,7 @@ public class AplicacionPrincipal extends Application {
 
 				// Asignamos a los TextFields/ChoiceBoxs/ToggleGroup los atributos que rueda
 				// contiene y que
-				// les toca
+				// les corresponde
 				fRuedaPestana2.txtId.setText(rueda.getIdRueda());
 				fRuedaPestana2.txtMarca.setText(rueda.getMarca());
 				fRuedaPestana2.txtModelo.setText(rueda.getModelo());
@@ -181,9 +194,7 @@ public class AplicacionPrincipal extends Application {
 					fRuedaPestana2.radBlando.setSelected(true);
 					break;
 				}
-
 			}
-
 		});
 
 		// Añadimos un evento al btnActualizar de fRuedaPestana2
@@ -211,7 +222,6 @@ public class AplicacionPrincipal extends Application {
 				// Ejecutamos la función actualizar() de RuedaDAO con rueda como parámetro
 				RuedaDAO.actualizar(rueda);
 			}
-
 		});
 
 		// Añadimos un evento al btnEliminar de fRuedaPestana2
@@ -224,14 +234,7 @@ public class AplicacionPrincipal extends Application {
 				// como parámetro
 				RuedaDAO.eliminar(fRuedaPestana2.txtId.getText());
 			}
-
 		});
-
-		// Creamos un VBox
-		VBox panelVBox = new VBox();
-
-		// Añadimos al panelVBox el fRuedaPestana2
-		panelVBox.getChildren().add(fRuedaPestana2);
 
 		// Asignamos el panelVBox como contenido de pestana2
 		pestana2.setContent(panelVBox);
@@ -245,11 +248,15 @@ public class AplicacionPrincipal extends Application {
 		GridPane panelPestana3 = new GridPane();
 		ScrollPane panelScrollPestana3 = new ScrollPane();
 
+		//Creamos un Label labelOrdenar
+		Label labelOrdenar = new Label("El listado de ruedas se encuentra ordenado de manera: ");
+		
 		// Creamos un Button btnOrdenarAscDesc
-		Button btnOrdenarAscDesc = new Button("Desc");
+		Button btnOrdenarAscDesc = new Button("Ascendente");
 
-		// Añadimos el btnOrdenarAscDesc al panelPestana3
-		panelPestana3.add(btnOrdenarAscDesc, 0, 0);
+		// Añadimos el labelOrdenar y el btnOrdenarAscDesc al panelPestana3
+		panelPestana3.add(labelOrdenar, 0, 0);
+		panelPestana3.add(btnOrdenarAscDesc, 0, 1);
 
 		// Con un for recorremos el ArrayList listaRuedas que contiene las ruedas
 		// RuedaVO
@@ -264,7 +271,7 @@ public class AplicacionPrincipal extends Application {
 							+ listaRuedas.get(i).getSesion() + ", " + listaRuedas.get(i).getIdCoche());
 
 			// Vamos añadiendo los labelRueda al panelPestana3
-			panelPestana3.add(labelRueda, 0, i + 1);
+			panelPestana3.add(labelRueda, 0, i + 2);
 		}
 
 		// Añadimos un evento al btnOrdenarAscDesc
@@ -273,17 +280,18 @@ public class AplicacionPrincipal extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
-				// Eliminamos todas las filas de panelPestana3 menos la primera que contiene el
-				// botón
-				panelPestana3.getChildren().remove(1, listaRuedas.size() + 1);
+				// Eliminamos todas las filas de panelPestana3 menos la primera y segunda que contienen el
+				// label y el botón
+				panelPestana3.getChildren().remove(2, listaRuedas.size() + 2);
 
 				// Switch con el texto de btnOrdenarAscDesc como referencia
 				switch (btnOrdenarAscDesc.getText()) {
-				// En el caso de Desc
-				case "Desc":
+				
+				// En el caso de Ascendente
+				case "Ascendente":
 
-					// El texto de btnOrdenarAscDesc pasa a ser Asc
-					btnOrdenarAscDesc.setText("Asc");
+					// El texto de btnOrdenarAscDesc pasa a ser Descendente
+					btnOrdenarAscDesc.setText("Descendente");
 
 					// Recorremos la listaRuedas del final al principio
 					for (int i = listaRuedas.size() - 1; i >= 0; i--) {
@@ -297,15 +305,15 @@ public class AplicacionPrincipal extends Application {
 								+ listaRuedas.get(i).getIdCoche());
 
 						// Vamos añadiendo los labelRueda al panelPestana3
-						panelPestana3.add(labelRueda, 0, listaRuedas.size() - i);
+						panelPestana3.add(labelRueda, 0, listaRuedas.size() - i+1);
 					}
 					break;
 
-				// En el caso de Asc
-				case "Asc":
+				// En el caso de Descendente
+				case "Descendente":
 
-					// El texto de btnOrdenarAscDesc pasa a ser Desc
-					btnOrdenarAscDesc.setText("Desc");
+					// El texto de btnOrdenarAscDesc pasa a ser Ascendente
+					btnOrdenarAscDesc.setText("Ascendente");
 
 					// Recorremos la listaRuedas del principio al final
 					for (int i = 0; i < listaRuedas.size(); i++) {
@@ -319,13 +327,11 @@ public class AplicacionPrincipal extends Application {
 								+ listaRuedas.get(i).getIdCoche());
 
 						// Vamos añadiendo los labelRueda al panelPestana3
-						panelPestana3.add(labelRueda, 0, i + 1);
+						panelPestana3.add(labelRueda, 0, i + 2);
 					}
 					break;
 				}
-
 			}
-
 		});
 
 		// Determinamos el Padding y el espacio vertical entre elementos del GridPane
@@ -352,7 +358,7 @@ public class AplicacionPrincipal extends Application {
 		borderPane.setCenter(panelPestanas);
 
 		// La scene contiene los panel
-		var scene = new Scene(borderPane, 450, 400);
+		var scene = new Scene(borderPane, 450, 450);
 
 		// El stage es el contenido global de la ventana
 		stage.setScene(scene);

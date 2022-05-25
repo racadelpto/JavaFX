@@ -21,7 +21,7 @@ public class ConexionBD {
 
 		// Parametros para la conexion a BD
 		String user = "root";
-		String password = "";
+		String password = "admin";
 		String url = "jdbc:mysql://localhost:3306/campeonatogt3";
 
 		// Conexion para acceder a BD

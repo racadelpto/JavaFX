@@ -38,16 +38,18 @@ public class FormularioRueda extends GridPane {
 	RadioButton radMedio = new RadioButton("Medio");
 	RadioButton radBlando = new RadioButton("Blando");
 
-	// Declaramos los Button para cada formulario
+	// Declaramos los Button para cada formulario (se añaden en la app principal)
 	Button btnInsertar = new Button("Insertar");
 	Button btnActualizar = new Button("Actualizar");
 	Button btnEliminar = new Button("Eliminar");
 
-	// Declaramos el Label y ChoiceBox para el segundo formulario
+	// Declaramos el Label y ChoiceBox para el formulario (se añaden en la app principal)
 	Label lblSelectIdRueda = new Label("Seleccionar Id Rueda:");
 	ChoiceBox chSelectIdRueda = new ChoiceBox();
 
-	// Primer constructor para el formulario de insertar
+	//  Constructor para el formulario estándar
+	// A los objetos creados se le añadirán los labels, choicebox o buttons que correspondan
+	// en función de si son el de insertar o actualizar/eliminar
 	public FormularioRueda() {
 
 		// Añadimos cada RadioButton al ToggleGroup grpComponente
@@ -90,73 +92,9 @@ public class FormularioRueda extends GridPane {
 		this.add(radMedio, 2, 6);
 		this.add(radDuro, 3, 6);
 
-		this.add(btnInsertar, 0, 7, 4, 1);
-
 		// Determinamos el padding del GridPane y la distancia entre elementos
-		this.setPadding(new Insets(20, 20, 20, 20));
+		this.setPadding(new Insets(10, 20, 20, 20));
 		this.setVgap(10);
 		this.setHgap(10);
-
 	}
-
-	// Constructor para el formulario de actualizar y eliminar
-	// Para llamar a este se usa un simple String sin utilidad alguna más que esa
-	// El contenido es el mismo que el formulario de insertar excepto el choicebox
-	// de selectId
-	// y los botones de actualizar y eliminar
-	public FormularioRueda(String campo) {
-
-		// Añadimos cada RadioButton al ToggleGroup grpComponente
-		radDuro.setToggleGroup(grpComponente);
-		radMedio.setToggleGroup(grpComponente);
-		radBlando.setToggleGroup(grpComponente);
-
-		// Introducimos datos en el chPeso, números de 0 al 100
-		for (int i = 0; i < 101; i++) {
-			chPeso.getItems().add(i);
-		}
-
-		// Introducimos diversos estados al chEstado
-		chEstado.getItems().add("Nuevo");
-		chEstado.getItems().add("Usado");
-		chEstado.getItems().add("Averiado");
-		chEstado.getItems().add("Óptimo");
-
-		// Añadimos cada elemento del formulario al GridPane según su posición
-		this.add(lblSelectIdRueda, 0, 0);
-		this.add(chSelectIdRueda, 1, 0, 4, 1);
-
-		this.add(lblId, 0, 1);
-		this.add(txtId, 1, 1, 4, 1);
-
-		this.add(lblMarca, 0, 2);
-		this.add(txtMarca, 1, 2, 4, 1);
-
-		this.add(lblModelo, 0, 3);
-		this.add(txtModelo, 1, 3, 4, 1);
-
-		this.add(lblDimensiones, 0, 4);
-		this.add(txtDimensiones, 1, 4, 4, 1);
-
-		this.add(lblPeso, 0, 5);
-		this.add(chPeso, 1, 5, 4, 1);
-
-		this.add(lblEstado, 0, 6);
-		this.add(chEstado, 1, 6, 4, 1);
-
-		this.add(lblComponente, 0, 7);
-		this.add(radBlando, 1, 7);
-		this.add(radMedio, 2, 7);
-		this.add(radDuro, 3, 7);
-
-		this.add(btnActualizar, 0, 8, 2, 1);
-		this.add(btnEliminar, 1, 8, 2, 1);
-
-		// Determinamos el padding del BorderPane y la distancia entre elementos
-		this.setPadding(new Insets(20, 20, 20, 20));
-		this.setVgap(10);
-		this.setHgap(10);
-
-	}
-
 }

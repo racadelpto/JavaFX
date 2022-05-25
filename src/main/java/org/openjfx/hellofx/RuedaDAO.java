@@ -174,6 +174,7 @@ public class RuedaDAO {
 				return resultado;
 			}
 
+			//La fecha, sesión y Coche_idCoche los ponemos a null y un id predeterminado ya que en el ejercicio no se piden
 			pStmt.setString(8, null);
 			pStmt.setString(9, null);
 			pStmt.setString(10, "AlfC4");
@@ -335,6 +336,7 @@ public class RuedaDAO {
 			posicion++;
 		}
 
+		//Sumamos a query ese String ya que no se piden en los atributos de rueda en el ejercicio
 		query += ", Fecha = ?, Sesión = ?, Coche_idCoche = ?";
 
 		// Unimos a query ese String
@@ -425,25 +427,14 @@ public class RuedaDAO {
 				posicion++;
 			}
 
-			// Asignamos fecha de rueda al ? del pStmt en la posicion en ese
-			// momento
+			//La fecha, sesión y Coche_idCoche los ponemos a null y un id predeterminado ya que en el ejercicio no se piden
 			pStmt.setString(posicion, null);
-
-			// Sumamos 1 a posicion
 			posicion++;
-
-			// Asignamos sesion de rueda al ? del pStmt en la posicion en ese
-			// momento
+			
 			pStmt.setString(posicion, null);
-
-			// Sumamos 1 a posicion
 			posicion++;
-
-			// Asignamos idCoche de rueda al ? del pStmt en la posicion en ese
-			// momento
+			
 			pStmt.setString(posicion, "AlfC4");
-
-			// Sumamos 1 a posicion
 			posicion++;
 
 			// Asignamos idRueda de rueda al ? del pStmt en la posicion en ese
